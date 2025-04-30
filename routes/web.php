@@ -19,17 +19,15 @@ use App\Http\Controllers\RekapdataController;
 */
 
 Route::get('/', function () {
-    return view('layouts.app');
+    return view('Akses.login');
 });
 
-Route::middleware(['guest'])->group(function () {
-    Route::get('login', [AksesController::class, 'showLoginForm'])->name('login');
-    Route::post('login', [AksesController::class, 'login'])->name('login.store');
-    Route::post('logout', [AksesController::class, 'logout'])->name('logout');
-});
+Route::get('login', [AksesController::class, 'showLoginForm'])->name('login');
+Route::post('login', [AksesController::class, 'login'])->name('login.store');
 
 
 Route::middleware(['auth'])->group(function () {
+    Route::post('logout', [AksesController::class, 'logout'])->name('logout');
 
     // GURU
     Route::get('show', [GuruController::class, 'show'])->name('input.guru');
@@ -64,4 +62,3 @@ Route::middleware(['auth'])->group(function () {
     Route::get('rekap', [RekapdataController::class, 'index'])->name('rekap.data');
     Route::delete('rekap/{rekap}', [RekapdataController::class, 'destroy'])->name('rekap.destroy');
 });
-
