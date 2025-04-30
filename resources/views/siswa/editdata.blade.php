@@ -14,7 +14,7 @@
                 <label for="kelas_id">Kelas</label>
                 <select class="form-control" id="kelas_id" name="kelas_id" required>
                     @foreach ($kelas as $k)
-                        <option value="{{ $k->id }}" @if ($k->id == $siswa->kelas_id) selected @endif>{{ $k->nama_kelas }}</option>
+                        <option value="{{ $k->id }}" @if ($k->id == $siswa->kelas_id) selected @endif>{{ $k->kelas_id }}</option>
                     @endforeach
                 </select>
             </div>
