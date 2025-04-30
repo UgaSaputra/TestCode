@@ -1,0 +1,114 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: #e0f7fa; /* Warna biru muda untuk memberikan kesan sejuk */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-section {
+    background: rgba(255, 255, 255, 0.8); /* Efek transparan seperti kaca */
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #00796b; /* Hijau sejuk untuk judul */
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.alert {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.alert.success {
+    background-color: #81c784; /* Hijau terang untuk sukses */
+    color: #fff;
+}
+
+.alert.error {
+    background-color: #e57373; /* Merah muda untuk error */
+    color: #fff;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 2px solid #b2dfdb; /* Biru hijau muda */
+    border-radius: 5px;
+    background-color: #f1f8e9;
+    color: #00796b;
+    padding-right: 40px; /* Memberikan ruang untuk ikon di kanan */
+}
+
+.input-group i {
+    position: absolute;
+    top: 50%;
+    right: 12px; /* Pindahkan ke kanan */
+    transform: translateY(-50%);
+    color: #00796b;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #00796b;
+}
+
+#togglePassword {
+    cursor: pointer;
+}
+
+/* Button Styles */
+#signin-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background-color: #00796b;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#signin-btn:hover {
+    background-color: #004d40; /* Warna hijau lebih gelap untuk hover */
+}
+
+/* Add responsiveness */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .right-section {
+        width: 90%;
+        padding: 20px;
+    }
+}
