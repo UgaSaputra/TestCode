@@ -25,7 +25,7 @@
                     <tr>
                         <td>{{ $s->nama_siswa }}</td>
                         <td>{{ $s->kelas->kelas_id ?? '-' }}</td>
-                        <td>{{ $s->mapel->mapel_id ?? '-' }}</td>
+                        <td>{{ $s->mapel->nama_mapel ?? '-' }}</td>
                         <td>
                             <a href="{{ route('siswa.edit', $s->id) }}" class="btn btn-warning">Edit</a>
                             <form action="{{ route('siswa.destroy', $s->id) }}" method="POST" style="display:inline;">

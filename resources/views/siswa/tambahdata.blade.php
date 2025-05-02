@@ -30,7 +30,7 @@
                 <select class="form-control" id="mapel_id" name="mapel_id" required>
                     <option value="" disabled selected>Pilih Kelas</option>
                     @foreach ($mapel as $k)
-                        <option value="{{ $k->id }}">{{ $k->mapel_id }}</option>
+                        <option value="{{ $k->id }}">{{ $k->nama_mapel }}</option>
                     @endforeach
                 </select>
             </div>
