@@ -13,10 +13,15 @@ class siswa extends Model
     protected $fillable = [
         'nama_siswa',
         'kelas_id',
+        'mapel_id'
     ];
-    
+
     public function kelas()
-{
-    return $this->belongsTo(Kelas::class, 'kelas_id');
-}
+    {
+        return $this->belongsTo(Kelas::class, 'kelas_id');
+    }
+    public function mapels()
+    {
+        return $this->belongsTo(Mapel::class, 'mapel_id');
+    }
 }

@@ -25,20 +25,17 @@ class GuruController extends Controller
         guru::create($request->all());
         return redirect()->route('input.guru')->with('success', 'Data berhasil disimpan');
     }
-    public function destroy(Guru $guru)
+    public function destroy(Guru $id)
     {
-        $guru->delete();
+        $id->delete();
         return redirect()->route('guru.data');
     }
 
     public function edit($id) {
-        // Ambil data guru berdasarkan ID
         $guru = guru::findOrFail($id);
 
-        // Kirim data guru ke dalam view
         return view('Guru.editdata', compact('guru'));
     }
-
 
     public function update(Request $request, $id)
     {

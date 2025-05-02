@@ -3,6 +3,13 @@
 @section('contents')
     <div class="container">
         <h2>Tambah Rekap</h2>
+
+        @if (session('success'))
+        <div class="alert alert-success mt-2">
+            {{ session('success') }}
+        </div>
+    @endif
+
         <form action="{{ route('rekap.store') }}" method="POST">
             @csrf
             <div class="form-group">

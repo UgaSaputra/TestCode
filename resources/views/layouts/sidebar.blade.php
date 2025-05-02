@@ -65,6 +65,24 @@
   </li>
 
   <li class="nav-item">
+    <a class="nav-link collapsed" data-bs-target="#mapel-nav" data-bs-toggle="collapse" href="#">
+      <i class="bi bi-menu-button-wide"></i><span>Manage Mata Pelajaraan</span><i class="bi bi-chevron-down ms-auto"></i>
+    </a>
+    <ul id="mapel-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+        <li>
+            <a href="{{ route('input.mapel')}}">
+                <i class="bi bi-circle"></i><span>Tambah Data</span>
+            </a>
+        </li>
+        <li>
+          <a href="{{ route('mapel.index') }}">
+              <i class="bi bi-circle"></i><span>Lihat Data</span>
+          </a>
+        </li>
+    </ul>
+  </li>
+
+  <li class="nav-item">
     <a class="nav-link collapsed" data-bs-target="#rekap-nav" data-bs-toggle="collapse" href="#">
       <i class="bi bi-file-earmark-text"></i><span>Rekap</span><i class="bi bi-chevron-down ms-auto"></i>
     </a>

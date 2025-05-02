@@ -35,7 +35,7 @@ class RekapdataController extends Controller
         ]);
 
         rekapdata::create($request->all());
-        return redirect()->route('input.rekap');
+        return redirect()->route('input.rekap')->with('success', 'Data berhasil ditambahkan!');
     }
 
     public function destroy($id)

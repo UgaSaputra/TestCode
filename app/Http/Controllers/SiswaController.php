@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kelas;
+use App\Models\Mapel;
 use App\Models\siswa;
 use Illuminate\Http\Request;
 
@@ -10,7 +11,8 @@ class SiswaController extends Controller
 {
     public function show() {
         $kelas = Kelas::all();
-        return view('siswa.tambahdata', compact('kelas'));
+        $mapel = Mapel::all();
+        return view('siswa.tambahdata', compact('kelas', 'mapel'));
     }
 
     public function index() {
@@ -23,6 +25,7 @@ class SiswaController extends Controller
         $request->validate([
             'nama_siswa' => 'required|string|max:255',
             'kelas_id' => 'required|exists:kelas,id',
+            'mapel_id' => 'required|exists:mapel,id',
         ]);
 
         siswa::create($request->all());

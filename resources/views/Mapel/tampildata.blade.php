@@ -3,28 +3,28 @@
 @section('contents')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <div class="container">
-        <h2>Daftar Kelas</h2>
+        <h2>Daftar Mata Pelajaraan</h2>
         @if (session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ session('success') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
-        <a href="{{ route('input.kelas') }}" class="btn btn-primary mb-3">Tambah Kelas</a>
+        <a href="{{ route('input.mapel') }}" class="btn btn-primary mb-3">Tambah Kelas</a>
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>Nama Kelas</th>
+                    <th>Mata pelajaraan</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($kelas as $k)
+                @foreach ($mapel as $k)
                     <tr>
-                        <td>{{ $k->kelas_id }}</td>
+                        <td>{{ $k->nama_mapel }}</td>
                         <td>
-                            <a href="{{ route('kelas.edit', $k->id) }}" class="btn btn-warning">Edit</a>
-                            <form action="{{ route('kelas.destroy', $k->id) }}" method="POST" style="display:inline;">
+                            <a href="{{ route('mapel.edit', $k->id) }}" class="btn btn-warning">Edit</a>
+                            <form action="{{ route('mapel.destroy', $k->id) }}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="button" class="btn btn-danger btn-delete">Hapus</button>

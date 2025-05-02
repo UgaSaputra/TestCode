@@ -2,7 +2,14 @@
 
 @section('contents')
     <div class="container">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <h2>Daftar Guru</h2>
+        @if (session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
         <a href="{{ route('input.guru') }}" class="btn btn-primary mb-3">Tambah Guru</a>
         <table class="table table-bordered">
             <thead>
@@ -20,7 +27,7 @@
                             <form action="{{ route('guru.destroy', $g->id) }}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Hapus</button>
+                                <button type="button" class="btn btn-danger btn-delete">Hapus</button>
                             </form>
                         </td>
                     </tr>
@@ -28,4 +35,26 @@
             </tbody>
         </table>
     </div>
+
+    <script>
+        document.querySelectorAll('.btn-delete').forEach(button => {
+            button.addEventListener('click', function () {
+                const form = this.closest('form');
+                Swal.fire({
+                    title: 'Yakin ingin menghapus?',
+                    text: "Data akan dihapus secara permanen!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Ya, hapus!',
+                    cancelButtonText: 'Batal'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit();
+                    }
+                });
+            });
+        });
+    </script>
 @endsection

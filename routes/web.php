@@ -4,8 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\AksesController;
 use App\Http\Controllers\KelasController;
+use App\Http\Controllers\MapelController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\RekapdataController;
+use App\Models\Mapel;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +38,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('guru/{guru}/edit', [GuruController::class, 'edit'])->name('guru.edit');
     Route::put('guru/{guru}', [GuruController::class, 'update'])->name('guru.update');
     Route::patch('guru/{guru}', [GuruController::class, 'update'])->name('guru.update');
-    Route::delete('guru/{guru}', [GuruController::class, 'destroy'])->name('guru.destroy');
+    Route::delete('guru/{id}', [GuruController::class, 'destroy'])->name('guru.destroy');
 
     // SISWA
     Route::get('show/siswa', [SiswaController::class, 'show'])->name('input.siswa');
@@ -61,4 +63,13 @@ Route::middleware(['auth'])->group(function () {
     Route::post('rekap', [RekapdataController::class, 'store'])->name('rekap.store');
     Route::get('rekap', [RekapdataController::class, 'index'])->name('rekap.data');
     Route::delete('rekap/{rekap}', [RekapdataController::class, 'destroy'])->name('rekap.destroy');
+
+    // MAPEL
+    Route::get('show/mapel', [MapelController::class, 'show'])->name('input.mapel');
+    Route::post('mapel/store', [MapelController::class, 'store'])->name('mapel.store');
+    Route::get('mapel/index', [MapelController::class, 'index'])->name('mapel.index');
+    Route::get('mapel/{mapel}/edit', [MapelController::class, 'edit'])->name('mapel.edit');
+    Route::delete('mapel/{mapel}', [MapelController::class, 'destroy'])->name('mapel.destroy');
+
+
 });
